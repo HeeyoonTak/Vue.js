@@ -12,18 +12,13 @@
 <body>
   <div id="app">
     <table>
-      <tr v-for="c in col_size" style="border-bottom: hidden;" >
-        <td v-for="r in row_size" >
+      <tr>
+        <td v-for="c in col_size" >
+          <div v-for="r in row_size" >
             {{r+1}}*{{c}}={{(r+1)*(c)}}
-        </td>
+          </div>
+          </td>
       </tr>
-    <table>
-        <tr style="border-top: hidden;">
-            <td v-for="r in row_size" style="padding-top: 10;">
-                {{r+1}}*{{col_size}}={{(r+1)*(col_size)}}
-            </td>
-        </tr>
-    </table>
   </div>
 
   <script type="text/javascript">
