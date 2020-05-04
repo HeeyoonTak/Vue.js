@@ -12,13 +12,13 @@ let persons1 = [];
 for(let i=0; i<3; i++){
     persons1[i] ={name: "홍길동", age: 16+i};
 }
-let persons2 = persons1;
-persons2=persons1;
+let persons2 = [];
+persons2 = persons1;
 persons1[0].age=20;
 
 for(let i=0; i<persons1.length; i++){
     console.log(persons1[i]);
-}
-for(let i=0; i<persons1.length; i++){
-    console.log(persons2[i]);
+ }
+for(let j=0; j<persons2.length; j++){
+    console.log(persons2[j]);
 }

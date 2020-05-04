@@ -9,3 +9,19 @@
 // (3) test_sum 함수를 5회 반복 호출하라.
 // test_sum 함수를 호출할 때, sum 함수를 파라미터로 전달하라
 
+function sum(f){
+    let result = f(array)
+    console.log(result);
+}
+
+let test_sum=(array)=>{
+    array=[];
+    let result=0;
+    for(let i=0; i<10; i++){
+        array[i] = Math.floor(Math.random() * (11));
+        console.log(array[i]);
+        result +=array;
+    }
+    return result
+}
+sum(test_sum)
