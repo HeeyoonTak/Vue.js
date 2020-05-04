@@ -5,26 +5,33 @@
   <style>
     div#app { padding: 30px; margin: 30px auto; max-width: 600px; 
       border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa;  }
-    span { display: inline-block; margin: 5px; padding: 8px 15px; 
-      border: 1px solid black; }
+      span { display: inline-block; margin: 5px; padding: 8px 15px; 
+            border: 1px solid black; }
+
   </style>
 </head>
 <body>
   <div id="app">
-    <span v-for="s in words">
-      {{ s }}
-    </span>
-    <input type="text" >
-    <button type="button" v-on:click="run = true" v-bind:disabled="run">생성</button>
+    
+    <input type="text" value="0">
+    <button type="button" v-on:click="make" v-bind:value="array">생성</button>
+    <br>
+    <span v-for="i in array">
+        {{ i }}
+      </span>
+  
   </div>
 
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        array: [],
-        num=0,
-      }
+        array: '0',
+      },
+      methods: {
+        make: function() {
+        }
+    }
     })
    </script>
 </body>    
