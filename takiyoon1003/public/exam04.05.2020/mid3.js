@@ -18,6 +18,7 @@ persons1[0].age=20;
 
 for(let i=0; i<persons1.length; i++){
     console.log(persons1[i]);
+}
+for(let i=0; i<persons1.length; i++){
     console.log(persons2[i]);
-
 }
