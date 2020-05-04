@@ -16,8 +16,8 @@
     <input type="text" v-model="value">
     <button type="button" v-on:click="make" >생성</button>
     <br>
-    <span v-for="value in array1" >
-        {{ value }}
+    <span v-for="(item,i) in array1" :key="i">
+        {{ item }}
       </span>
   
   </div>
@@ -34,8 +34,9 @@
       methods: {
         make: function() {
           this.array=this.value;
+          this.array1=[this.array];
           let a = [];
-        for (let i = 0; i < this.array.length; ++i)
+        for (let i = 0; i < this.array; ++i)
           a[i] = Math.floor(Math.random() * (9  + 1) );;
         shuffleArray(a);
         this.array1=a;
