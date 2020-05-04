@@ -14,10 +14,10 @@ function sum(f){
     console.log(result);
 }
 
-let test_sum=(array)=>{
+let test_sum=(result)=>{
     array=[];
-    let result=0;
-    for(let i=0; i<10; i++){
+    result=0;
+    for(let i=0; i<5; i++){
         array[i] = Math.floor(Math.random() * (11));
         console.log(array[i]);
         result +=array;
