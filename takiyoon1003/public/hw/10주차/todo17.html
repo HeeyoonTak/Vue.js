@@ -17,7 +17,7 @@
       </li>
     </ul>
     <input type="text" v-model.trim="todo.title"/>
-    <button type="button" v-on:click="save" v-bind:disabled="!todo">저장</button>
+    <button type="button" v-on:click="save" v-bind:disabled="!todo.title">저장</button>
     <button type="button" v-on:click="remove" v-show="checkedCount > 0">삭제</button>
   </div>
 
@@ -26,15 +26,16 @@
       el: '#app',
       data: {
         todoMap: {},
-        checked: {},
+        checked: [],
         todo: {},
-        selectedKey: null
+        selectedKey: null,
       },
       computed: {
         checkedCount: function() {
           let count = 0;
-          for (let i = 0; i < this.checked.length; ++i)
+          for (let i in this.checked){
             if (this.checked[i]) ++count;
+          }
           return count;
         }
       },
@@ -49,13 +50,16 @@
             this.todo = {};
         },
         remove: function() {
-            if (confirm("삭제하시겠습니까?") == false) return;
-            let list = [];
-             for (let i = 0; i < this.todoList.length; ++i)
-                if (!this.checked[i])
-            list.push(this.todoList[i]);
-            this.todo1Ref.set(list);
-            this.checked = [];
+            for (let i in this.todoMap){
+                if(this.checked[i]!=null){
+                    this.checked[i]=null;
+                    this.selectedKey = i;
+                    if (confirm("삭제하시겠습니까?") == false) return;
+                    axios.delete('https://takiyoon1003.firebaseio.com/todo1/'+this.selectedKey+'.json')
+                        .then(response => this.reload());
+                }
+                
+            }
         }
       }
     })
