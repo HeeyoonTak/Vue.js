@@ -50,11 +50,11 @@
             this.todo = {};
         },
         remove: function() {
+          if (confirm("삭제하시겠습니까?") == false) return;
             for (let i in this.todoMap){
                 if(this.checked[i]!=null){
                     this.checked[i]=null;
                     this.selectedKey = i;
-                    if (confirm("삭제하시겠습니까?") == false) return;
                     axios.delete('https://takiyoon1003.firebaseio.com/todo1/'+this.selectedKey+'.json')
                         .then(response => this.reload());
                 }
