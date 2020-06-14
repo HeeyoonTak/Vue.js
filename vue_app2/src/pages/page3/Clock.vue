@@ -23,7 +23,7 @@ export default {
     console.log('mounted');
   },
   beforeDestroy: function() {
-    //clearInterval(this.timerId);
+    clearInterval(this.timerId);
     console.log('beforeDestory');
   }
 }
